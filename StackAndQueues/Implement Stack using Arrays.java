@@ -7,15 +7,17 @@ public class Solution{
             arr = new int[capacity];
             cap1 = capacity;
         }
-        public void push(int num) {
+        public boolean push(int num) {
             if(top1==cap1-1){
-                return;
+                return false;
             }
             top1++;
             arr[top1]= num;
+            return true;
         }
         public int pop() {
             if(top1==-1){
+                System.out.println("no elements in stack");
                 return -1;
             }
             int val = arr[top1];
@@ -24,19 +26,21 @@ public class Solution{
         }
         public int top() {
            if(top1 == -1){
-               return -1;
+               System.out.println("no elements in stack");
+                return ;
            }
            return arr[top1];
         }
-        public int isEmpty() {
+        public boolean isEmpty() {
             if(top1==-1)
-                return 1;
-            return 0;
+                return true;
+            return false;
         }
-        public int isFull() {
+        
+        public boolean isFull() {
            if(top1==cap1-1)
-                return 1;
-           return 0;
+                return true;
+           return false;
         }
     }
 }
